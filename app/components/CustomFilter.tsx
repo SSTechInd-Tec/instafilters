@@ -1,23 +1,21 @@
 import { Box, Slider, Tabs, Text } from "@mantine/core"
+import Sliders from "./Sliders"
 
 function CustomFilter() {
 
     const sliders = [
-        {label: "Contrast", defaultValue: 50},
-        {label: "Brightness", defaultValue: 50},
-        {label: "Saturation", defaultValue: 50},
-        {label: "Sepia", defaultValue: 50},
-        {label: "Gray Scale", defaultValue: 50},
+        {label: "Contrast", field: "contrast", defaultValue: 100},
+        {label: "Brightness", field: "brightness", defaultValue: 100},
+        {label: "Saturation", field: "saturate", defaultValue: 100},
+        {label: "Sepia", field: "sepia", defaultValue: 0},
+        {label: "Gray Scale", field: "gray", defaultValue: 0},
     ]
 
   return (
     <Tabs.Panel p={30} value="custom-filters">
         {sliders.map((item) => {
             return (
-                <Box my={30}>
-                    <Text>{item.label}</Text>
-                    <Slider defaultValue={item.defaultValue} labelAlwaysOn />
-                </Box>
+                <Sliders label={item.label} defaultValue={item.defaultValue} field={item.field}  />
             )
         })}
     </Tabs.Panel>

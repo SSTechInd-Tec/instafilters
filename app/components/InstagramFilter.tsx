@@ -1,15 +1,16 @@
 "use client";
 
 import { Select, Tabs } from "@mantine/core"
-import { useState } from "react";
+import { useContext } from "react";
 import { filterValues } from "../utils";
+import { FilterContext } from "../page";
 
 function InstagramFilter() {
 
-    const [selectedValue, setSelectedValue] = useState<string | null>(null);
+    const {setFilterClass} = useContext(FilterContext);
 
     const handleChange = (value: string | null) => {
-        setSelectedValue(value);
+      setFilterClass(value?.replace(" ", "-").toLocaleLowerCase());
     };
 
   return (
