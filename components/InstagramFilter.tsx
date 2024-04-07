@@ -2,15 +2,15 @@
 
 import { Select, Tabs } from "@mantine/core"
 import { useContext } from "react";
-import { filterValues } from "../utils";
-import { FilterContext } from "../page";
-
+import { filterValues } from "../app/utils";
+import { FilterContext } from "../app/page";
+ 
 function InstagramFilter() {
 
     const {setFilterClass} = useContext(FilterContext);
 
     const handleChange = (value: string | null) => {
-      setFilterClass(value?.replace(" ", "-").toLocaleLowerCase());
+      setFilterClass(`filter-${value?.toLocaleLowerCase()}`);
     };
 
   return (
@@ -18,7 +18,7 @@ function InstagramFilter() {
         <Select
             label="Filter"
             placeholder="Pick "
-            data={filterValues.map((item) => {return item.replace("-", " ").toLocaleUpperCase()})}
+            data={filterValues.map((item) => {return item.split("-")[1].toLocaleUpperCase()})}
             onChange={handleChange}
         />
     </Tabs.Panel>

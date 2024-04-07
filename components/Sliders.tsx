@@ -1,13 +1,13 @@
 "use client";
-
+ 
 import { Box, Slider, Text } from "@mantine/core"
 import { useContext, useEffect, useState } from "react"
-import { FilterContext } from "../page"
+import { FilterContext } from "../app/page"
 
 function Sliders({label, defaultValue, field}: {label: string, defaultValue: number, field: string}) {
     
     const {customFilter, setCoustomFilter, setFilterClass} = useContext(FilterContext);
-    const [value, setValue] = useState(defaultValue);
+    const [value, setValue] = useState(0);
 
 
     useEffect(() => {

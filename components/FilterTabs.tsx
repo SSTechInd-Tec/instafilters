@@ -1,7 +1,7 @@
 import { Grid, Tabs } from "@mantine/core"
 import InstagramFilter from "./InstagramFilter"
 import CustomFilter from "./CustomFilter"
-
+ 
 function FilterTabs() {
   return (
     <Grid.Col span={{ base: 12, md: 5, xs: 12 }} >

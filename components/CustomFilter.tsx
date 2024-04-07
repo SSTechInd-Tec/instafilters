@@ -1,6 +1,6 @@
-import { Box, Slider, Tabs, Text } from "@mantine/core"
+import { Tabs } from "@mantine/core"
 import Sliders from "./Sliders"
-
+ 
 function CustomFilter() {
 
     const sliders = [
@@ -13,9 +13,9 @@ function CustomFilter() {
 
   return (
     <Tabs.Panel p={30} value="custom-filters">
-        {sliders.map((item) => {
+        {sliders.map((item:{field: string, defaultValue: number, label: string}) => {
             return (
-                <Sliders label={item.label} defaultValue={item.defaultValue} field={item.field}  />
+                <Sliders key={item.field} defaultValue={item.defaultValue} field={item.field} label={item.label} />
             )
         })}
     </Tabs.Panel>

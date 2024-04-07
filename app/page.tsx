@@ -1,14 +1,25 @@
 "use client"
 
-import Image from "next/image";
-import styles from "./page.module.css";
-import { Box, Button, Container, Grid } from "@mantine/core";
-import ImageFilters from "./components/ImageFilters";
-import FilterTabs from "./components/FilterTabs";
+import { Box, Container, Grid, } from "@mantine/core";
+import ImageFilters from "../components/ImageFilters";
+import FilterTabs from "../components/FilterTabs";
 import { createContext, useState } from "react";
 
 
-export const FilterContext = createContext({});
+
+interface FilterContextTypes {
+  filterClass: any;
+  setFilterClass: any;
+  customFilter: any;
+  setCoustomFilter: any;
+}
+
+export const FilterContext = createContext<FilterContextTypes>({
+  filterClass: '',
+  setFilterClass: '',
+  customFilter: '',
+  setCoustomFilter: '',
+});
 
 
 export default function Home() {
@@ -28,6 +39,7 @@ export default function Home() {
     customFilter,
     setCoustomFilter
   }
+
 
   return (
    <FilterContext.Provider value={contextValues} >
